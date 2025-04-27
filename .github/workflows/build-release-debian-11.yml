@@ -61,6 +61,10 @@ jobs:
       - name: Free Space - Remove docker images
         run: |
           docker rmi $(docker image ls -aq)
+          image_ids=$(docker image ls -aq)
+          if [[ -n $(image_ids) ]]; then
+           docker rmi $(image_ids);
+          fi;
           df -h
       - name: Check out the repo
         uses: actions/checkout@v4
