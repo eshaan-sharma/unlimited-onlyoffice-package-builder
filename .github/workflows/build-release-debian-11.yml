@@ -67,6 +67,10 @@ jobs:
           df -h
       - name: Check out the repo
         uses: actions/checkout@v4
+      - name: Set up Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
       - name: Split branch name
         env:
           BRANCH: ${{ github.ref_name }}
